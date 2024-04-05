@@ -1,19 +1,30 @@
 <template>
-    <nav>
-        <div class="container">
-            <div class="nav-left">
-                <img src="../assets/img/inverse-logo.svg" alt="" class="logo">
-                <div class="nav-link-wrapper">
-                    <a href="" class="nav-link">Services</a>
-                    <a href="" class="nav-link">Resources</a>
-                </div>
-            </div>
-            <div class="nav-right">
-                        <a href="" class="nav-link">Login</a>
-                    <button class="nav-btn">Booking</button>
-                    <div class="menu"><span></span><span></span><span></span></div>
-                    </div>
-            </div>
+    <nav class="navbar navbar-expand-lg rf-navbar-spacing fixed-top bg-light">
+        <a class="navbar-brand" href="#"><img src="../assets/img/logo.svg" alt="" class="navbar-logo-placeholder">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="rf-nav-link" aria-current="page" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="rf-nav-link" href="#">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="rf-nav-link" href="#">About</a>
+            </li>
+          </ul>
+          <div class="">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="rf-nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                   <a href="#" class="rf-btn-primary">Booking</a>
+                </li>
+            </ul>
+          </div>
+        </div>
     </nav>
 </template>
 <script>
@@ -25,62 +36,24 @@ export default {
 }
 </script>
 <style>
-.container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
+.navbar .fixed-top {
+  z-index: 1020; /* Higher values will bring the navbar above other elements */
 }
-nav {
+.navbar {
     width: 100%;
-    height: 120px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    position: fixed;
-    z-index: 100;
+    padding: 20px 30px;
 }
-.logo {
-    max-width: 100%;
-    width: 15vw;
-    height: auto;
+
+.navbar-logo-placeholder {
+    width: 100%;
+    max-width: 270px;
 }
-.nav-left {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-}
-.nav-link-wrapper {
-    margin-left: 60px;
-}
-.nav-link {
-    font-size: 18px;
+.rf-nav-link {
+    font-family: 'Neue Montreal', sans-serif;
     font-weight: 500;
-    color: white;
+    font-size: 1.25em;
+    color: black;
     text-decoration: none;
     margin-right: 20px;
 }
-.nav-btn { 
-    padding: 20px 40px;
-    font-size: 18px;
-    background-color: white;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    border-radius: 1000px;
-    border: none;
-    cursor: pointer; /* Change cursor to pointer */
-    outline: none; /* Remove outline when focused */
-    margin: 0; /* Remove margin */
-}
-
-
 </style>
