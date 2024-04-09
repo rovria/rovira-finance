@@ -1,8 +1,11 @@
 <template>
   <div class="hero">
-    <div class="hero-wrapper">
-      <h1>Empower Your Financial Journey</h1>
+    <div class="container">
+      <div class="inner-hero-wrapper">
+        <h1>Empower Your Financial Journey</h1>
       <h3>Expert Tax Services Tailored to Your Unique Needs.</h3>
+      <a href="" class="rf-btn">Our Services</a>
+      </div>
     </div>
   </div>
 
@@ -108,5 +111,49 @@ export default {
 </script>
 
 <style>
-/* Add your CSS styles here */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../assets/img/hero.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10vw;
+}
+.hero h1 {
+  color: white;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 125px;
+  letter-spacing: -1.2px;
+  width: 60vw;
+  margin-bottom: 50px;
+}
+.hero h3 {
+  color: white;
+  font-weight: 400;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 49px;
+  letter-spacing: -0.36px;
+  width: 25vw;
+  margin-bottom: 80px;
+}
+.rf-btn {
+  padding: 25px 45px;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 82px;
+  letter-spacing: -0.16px;
+  border-radius: 1000px;
+}
+.inner-hero-wrapper {
+  border: 1px solid red;
+}
 </style>

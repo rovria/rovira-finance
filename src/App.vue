@@ -9,7 +9,10 @@
 <script>
 import navBar from './components/navBar.vue'
 import footerBar from './components/footerBar.vue'
-import './assets/css/reset.css'
+import './assets/css/_reset.scss'
+import './assets/css/_fonts.scss'
+import './assets/css/_responsive.scss'
+
 
 export default {
   name: 'App',

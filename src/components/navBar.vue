@@ -1,30 +1,26 @@
 <template>
-    <nav class="navbar navbar-expand-lg rf-navbar-spacing fixed-top bg-light">
-        <a class="navbar-brand" href="#"><img src="../assets/img/logo.svg" alt="" class="navbar-logo-placeholder">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="rf-nav-link" aria-current="page" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="rf-nav-link" href="#">Resources</a>
-            </li>
-            <li class="nav-item">
-              <a class="rf-nav-link" href="#">About</a>
-            </li>
-          </ul>
-          <div class="">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="#" class="rf-nav-link">Login</a>
-                </li>
-                <li class="nav-item">
-                   <a href="#" class="rf-btn-primary">Booking</a>
-                </li>
-            </ul>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-wrapper">
+          <div class="left-link-wrapper">
+            <a href="" class="brand"><img src="../assets/img/inverse-logo.svg" alt=""></a>
+          <div class="left-inner-link-wrapper">
+            <a href="" class="nav-link">Services</a>
+            <a href="" class="nav-link">Resources</a>
+            <a href="" class="nav-link">About</a>
+          </div>
+          </div>
+          <div class="right-link-wrapper">
+            <a href="" class="nav-link">Login</a>
+            <a href="" class="nav-btn">Booking</a>
+          </div>
+          <div class="menu-btn">
+            <span></span>
+            <span></span>
           </div>
         </div>
+      </div>
+      <div class="navbar-bg"></div>
     </nav>
 </template>
 <script>
@@ -36,24 +32,60 @@ export default {
 }
 </script>
 <style>
-.navbar .fixed-top {
-  z-index: 1020; /* Higher values will bring the navbar above other elements */
-}
-.navbar {
+  .navbar {
+    border: 1px solid red;
+    position: fixed;
+    top: 0;
     width: 100%;
-    padding: 20px 30px;
-}
-
-.navbar-logo-placeholder {
+  }
+  .brand img{
+    max-width: 100%;
+    width: 20rem;
+  }
+  .left-inner-link-wrapper {
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+  .navbar-wrapper {
     width: 100%;
-    max-width: 270px;
-}
-.rf-nav-link {
-    font-family: 'Neue Montreal', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+  .left-link-wrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  .right-link-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .nav-link {
     font-weight: 500;
-    font-size: 1.25em;
+    font-size: 1.1em;
+    color: white;
+    font-family: 'Neue Montreal', sans-serif;
+  }
+  .nav-btn {
+    padding: 20px 30px;
+    background-color: white;
+    font-weight: 500;
     color: black;
-    text-decoration: none;
-    margin-right: 20px;
-}
+    border-radius: 1000px;
+  }
+  .menu-btn span {
+    width: 40px;
+    height: 2px;
+    background-color: white;
+    margin-top: 5px;
+  }
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+  }
 </style>
