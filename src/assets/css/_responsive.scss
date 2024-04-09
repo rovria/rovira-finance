@@ -5,7 +5,10 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
-
+.section {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
 @media (max-width: 1920px) {
     .container {
         max-width: 1800px;

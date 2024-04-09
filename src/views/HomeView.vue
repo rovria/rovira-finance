@@ -12,19 +12,13 @@
   <!-- This is the A team of seasoned experts section -->
   <div class="section">
     <div class="container">
-      <div class="grid_2_column">
-        <div class="col_1">
-          <!-- Fixed typo in 'src' attribute -->
-          <img src="../assets/img/luxury.png">
-        </div>
-        <div class="col_2">
-          <!-- Added missing closing quotation mark -->
-          <div class="row_1">
-            <h2 class="rf_medium_header">A team of seasoned experts</h2>
-          </div>
-          <div class="row_2">
-            <h3 class="rf_small_header">A modern touch on tax prep</h3>
-            <p class="rf_grey_paragraph">At Rovira Tax Studio, we go beyond traditional tax preparation. Our team of seasoned experts is dedicated to maximizing your refunds, minimizing your stress, and providing personalized solutions for individuals and businesses alike.</p>
+      <div class="grid-intro-section">
+        <img src="../assets/img/team.png" alt="" class="intro-img">
+        <div class="intro-inner-wrapper">
+          <h1>A team of seasoned experts</h1>
+          <div class="intro-p-wrapper">
+            <h4>A modern touch on tax prep</h4>
+            <p>At Rovira Tax Studio, we go beyond traditional tax preparation. Our team of seasoned experts is dedicated to maximizing your refunds, minimizing your stress, and providing personalized solutions for individuals and businesses alike.</p>
           </div>
         </div>
       </div>
@@ -34,39 +28,37 @@
   <!-- This is the Tax preparations for all levels Section -->
   <div class="section">
     <div class="container">
-      <div class="table_rows">
-        <h2 class="rf_medium_header">Tax preparations for all levels</h2>
-        <div class="rf_rows">
-          <div class="rf_flex-container">
-            <h1 class="rf_header_table_row">1</h1>
-            <h1 class="rf_header_table_row">Students</h1>
-            <img src="" alt="Student Image">
-          </div>
+      <h4 class="services-table-h">Tax preparations for all levels</h4>
+      <div class="services-table-wrapper">
+
+        <div class="services-table" style="border-top: 1px solid #C0C0C0;">
+          <h1>01</h1>
+          <h1>Students</h1>
+          <img src="../assets/img/arrow.svg" alt="">
+          <div class="table-bg"></div>
         </div>
 
-        <div class="rf_rows">
-          <div class="rf_flex-container">
-            <h1 class="rf_header_table_row">2</h1>
-            <h1 class="rf_header_table_row">Graduates</h1>
-            <img src="" alt="Graduate Image">
-          </div>
+        <div class="services-table">
+          <h1>02</h1>
+          <h1>Graduates</h1>
+          <img src="../assets/img/arrow.svg" alt="">
+          <div class="table-bg"></div>
         </div>
 
-        <div class="rf_rows">
-          <div class="rf_flex-container">
-            <h1 class="rf_header_table_row">3</h1>
-            <h1 class="rf_header_table_row">Newcomers</h1>
-            <img src="" alt="Newcomers Image">
-          </div>
+        <div class="services-table">
+          <h1>03</h1>
+          <h1>Newcomers</h1>
+          <img src="../assets/img/arrow.svg" alt="">
+          <div class="table-bg"></div>
         </div>
 
-        <div class="rf_rows">
-          <div class="rf_flex-container">
-            <h1 class="rf_header_table_row">4</h1>
-            <h1 class="rf_header_table_row">Businesses</h1>
-            <img src="" alt="Businesses Image">
-          </div>
+        <div class="services-table">
+          <h1>04</h1>
+          <h1>Businesses</h1>
+          <img src="../assets/img/arrow.svg" alt="">
+          <div class="table-bg"></div>
         </div>
+
 
       </div>
     </div>
@@ -110,7 +102,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+/* Hero Section */
 .hero {
   width: 100%;
   height: 100vh;
@@ -156,4 +149,81 @@ export default {
 .inner-hero-wrapper {
   border: 1px solid red;
 }
+/* Introduction Section */
+.grid-intro-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid red;
+}
+.intro-img {
+  width: 100%;
+  height: 1095px;
+  border-radius: 15px;
+}
+.intro-inner-wrapper {
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+}
+.intro-inner-wrapper h1 {
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 82px;
+    color: black;
+    letter-spacing: -0.8px;
+  }
+  .intro-p-wrapper h4 {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+  }
+  .intro-p-wrapper p {
+    color: #989898;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: -0.24px;
+    margin-top: 17px;
+  }
+
+  /* Services Section */
+  .services-table-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .services-table {
+    width: 100%;
+    border-bottom: 1px solid #C0C0C0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .services-table h1 {
+    font-size: 96px;
+    font-weight: 400;
+    line-height: 35px;
+  }
+  .services-table img {
+    justify-self: end;
+  }
+  .table-bg {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    background-color: black;
+  }
+  .services-table-h {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 35px;
+    letter-spacing: -0.24px;
+    margin-bottom: 2rem;
+  }
 </style>
