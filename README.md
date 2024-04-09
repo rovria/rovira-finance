@@ -1,24 +1,20 @@
-# app
+# Rovira Finance Website Project 
 
-## Project setup
-```
-npm install
-```
+## Company Overview
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+[Custom website for Rovira Finance, a finance small-business specializing in filling tax returns for students, newcomers, graduates, and small-businesses. Additionally, helping out newcomers with setting financial goals, general information, and product referrals.]
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Technologies Used
 
-### Lints and fixes files
-```
-npm run lint
-```
+- VUEJS 
+- JQUERY, GSAP
+- SASS 
+- WEBPACK
+- BABEL
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Features
+
+- General website pages
+- Smooth scroll 
+- Page animations
+- Midjourney generated content
