@@ -10,6 +10,7 @@
 import navBar from './components/navBar.vue'
 import footerBar from './components/footerBar.vue'
 import './assets/css/_reset.scss'
+import './assets/css/_global.scss'
 import './assets/css/_fonts.scss'
 import './assets/css/_responsive.scss'
 
