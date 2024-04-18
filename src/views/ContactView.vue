@@ -1,13 +1,17 @@
 <template>
+    <!-- Text Header for contact form -->
     <div class="section" style="padding-bottom:0rem;">
         <div class="container">
             <h1 class="rf_hero_h1 rf_black">Discover your true potential & finances</h1>
         </div>
     </div>
+    <!-- Contact Form -->
     <div class="section">
         <div class="container">
             <div class="inner-contact-wrapper">
+                <!-- Contact form, Image Column -->
                 <div class="img-col"></div>
+                <!-- Contact form, Form Column -->
                 <div class="form-col">
                     <h1 class="rf_contact_h3">Our team of experts is ready to answer your questions, give you more info and help you.</h1>
                     <form action="" class="form-wrapper">
