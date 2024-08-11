@@ -1,33 +1,15 @@
 <script>
-import MenuIcon from '../components/menu-icon.vue'
-
 export default {
   name: 'Header',
-  components: {
-    MenuIcon,
-  },
   data() {
     return {
-      isScrolled: false,
-      sectionHeight: 0,
+      isOpen: false,
     };
   },
   methods: {
-    handleScroll() {
-      // Access the section element by its ID
-      const section = document.getElementById('section1');
-      if (section) {
-        this.sectionHeight = section.offsetHeight;
-        this.isScrolled = window.scrollY > this.sectionHeight;
-      }
+    toggleMenu() {
+      this.isOpen = !this.isOpen;
     },
-  },
-  mounted() {
-    this.handleScroll(); // Check scroll position on mount
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
   },
 };
 </script>
@@ -35,13 +17,10 @@ export default {
   <header class="header">
     <div class="container">
       <div class="header__container">
-        <!-- Header columns Start Here -->
-        <div class="header__left">
-          <a
-            href="/"
-            class="header__brand"
-            :class="['header__brand', { active: isScrolled }]"
-            ><svg
+        <!-- Desktop Navigation -->
+        <div class="header__column">
+          <a href="/" class="header__brand">
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 312 39"
               fill="none"
@@ -86,68 +65,161 @@ export default {
               />
             </svg>
           </a>
-          <!-- Navigation Links Container Start Here -->
           <nav class="header__nav">
-            <a
-              href="/services"
-              class="nav__link"
-              :class="['nav__link', { active: isScrolled }]"
-              >Services</a
-            >
-            <a
-              href="/about"
-              class="nav__link"
-              :class="['nav__link', { active: isScrolled }]"
-              >About Us</a
-            >
+            <ul>
+              <li class="desktop__nav-list">
+                <a href="/Services" class="desktop__nav-link">Services</a>
+              </li>
+              <li class="desktop__nav-list">
+                <a href="/About" class="desktop__nav-link">About Us</a>
+              </li>
+            </ul>
           </nav>
         </div>
-        
-        <div class="header__right">
-          <!-- Header Button Container Starts Here -->
-          <div class="header__btn">
-            <a
-              href="#"
-              class="button button__lang btn_margin"
-              :class="['button__lang', { active: isScrolled }]"
-              >Sp</a
-            >
-            <a
-              href="/contact"
-              class="button button__cta"
-              :class="['button__cta', { active: isScrolled }]"
-              >Booking</a
-            >
+        <div class="header__column">
+          <div class="hamburger__container">
+            <div class="hamburger-menu" @click="toggleMenu">
+              <div
+                class="line"
+                :class="{ 'line-top-open': isOpen, 'line-top-closed': !isOpen }"
+              />
+              <div
+                class="line"
+                :class="{
+                  'line-bottom-open': isOpen,
+                  'line-bottom-closed': !isOpen,
+                }"
+              />
+            </div>
           </div>
-          <!-- Mobile Hamburger Icon Starts Here -->
-          <div class="header__menu">
-            <MenuIcon />
+          <div class="header__btn">
+            <a href="#" class="button button__lang lang__margin">Sp</a>
+            <a href="/Contact" class="button button__cta">Booking</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- Header Dropdown Background Starts Here -->
-    <div class="header__bg" :class="{ scrolled: isScrolled }"></div>
-  </header>
-      <!-- Mobile Full-Screen Navigation Container Starts Here -->
-      <div class="header__mobile__container">
-        <div class="mobile__container">
-          <div class="mobile__content">
-            <div class="mobile__content-section-large">
-              <a href="/Services" class="mobile__nav__link-large">What We Do</a>
-            <a href="/Contact" class="mobile__nav__link-large">Get in Touch</a>
-            <a href="/About" class="mobile__nav__link-large">About Us</a>
-            </div>
-            <div class="mobile__content-section-small">
-              <a href="/" class="mobile__nav__link-small">Home</a>
-              <a href="/Resources" class="mobile__nav__link-small">Resources</a>
-            </div>
+    <!-- Mobile Fullscreen Navigation -->
+    <div class="header__mobile__container">
+      <div class="container">
+        <div class="header__mobile__content">
+          <nav class="mobile__nav-big">
+            <ul>
+              <li class="mobile__nav-list">
+                <a href="/Services" class="mobile__nav-link-big"
+                  >What we Offer</a
+                >
+              </li>
+              <li class="mobile__nav-list">
+                <a href="/About" class="mobile__nav-link-big">What We Do</a>
+              </li>
+              <li class="mobile__nav-list">
+                <a href="/Contact" class="mobile__nav-link-big">Get in Touch</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="mobile__nav-small">
+            <ul>
+              <li class="mobile__nav-list">
+                <a href="/Resources" class="mobile__nav-link-small"
+                  >Resources</a
+                >
+              </li>
+              <li class="mobile__nav-list">
+                <a href="/Terms" class="mobile__nav-link-small"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li class="mobile__nav-list">
+                <a href="/Privacy" class="mobile__nav-link-small"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="mobile__nav-info">
+            <p class="mobile__nav-link">Opening Hours: Mon-Fri 9-5PM</p>
+            <a href="#" class="mobile__nav-link">finance@rovirastudios.com</a>
           </div>
         </div>
       </div>
+    </div>
+    <!-- Scrolling Desktop Navigation Background -->
+    <div class="header__bg"></div>
+  </header>
 </template>
 <style lang="scss">
-/* Standard Header Starts Here */
+.hamburger__container {
+  display: none;
+}
+.header__mobile__container {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+/* Media Queries */
+@media (max-width: 1920px) {
+}
+/* 2xl */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+  .header__btn {
+    display: none;
+  }
+  .header__nav {
+    display: none;
+  }
+  .hamburger__container {
+    display: block;
+  }
+  .header__mobile__container {
+    display: block;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+  .header__brand {
+    width: 80%;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .container {
+    width: 100%;
+  }
+}
+/* Desktop Classes */
 .header {
   width: 100%;
   padding: 1em 0rem;
@@ -167,50 +239,108 @@ export default {
   align-items: center;
   align-content: center;
 }
-/* Navigation Links Starts Here */
-.nav__link {
-  color: #fff;
-  font-size: 1.25rem;
+.header__nav {
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+  .desktop__nav-list {
+    margin-right: 1rem;
+  }
+}
+.desktop__nav-link {
+  color: #000;
+  font-size: 1.25em;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-left: 1.5rem;
+}
+/* Mobile Classes */
+.button__lang {
+  font-size: 1.25rem;
+  border: 2px solid rgba(0, 0, 0, 0.45);
+  background-color: transparent;
+  padding: 0.8rem 0.9rem;
+  color: black;
   transition: 0.3s ease;
 }
-.nav__link.active {
-  color: black;
+.button__lang:hover {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
 }
-.nav__link:hover {
-  color: #afafaf;
+.button__cta {
+  font-size: 1.25rem;
+  background-color: black;
+  color: white;
+  padding: 0.9rem 2.3rem;
+  transition: 0.3s ease;
 }
-.header__left {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  align-items: end;
+.button__cta:hover {
+  background-color: #828282;
+  color: white;
 }
-.header__nav {
-  margin-left: 2rem;
-}
-.btn_margin {
+.lang__margin {
   margin-right: 1rem;
 }
-/* Header Background Starts Here */
-.header__bg {
+.mobile__nav-link-big {
+    font-size: 3.5em;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+.mobile__nav-link-small {
+    font-size: 1.5em;
+    letter-spacing: -0.3px;
+}
+.header__mobile__content {
+    width: 100%;
+    height: 100%;
+    padding: 6rem 0rem;
+}
+.mobile__nav-big {
+    margin-bottom: 2rem;
+}
+.mobile__nav-small {
+    margin-bottom: 2rem;
+}
+/* Mobile Hamburger Icon */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 40px;
+  height: 40px; /* Adjusted height to fit the lines properly */
+  position: relative;
+}
+.line {
+  width: 40px;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3s ease;
   position: absolute;
-  width: 100%;
-  height: 0;
-  background-color: white;
-  top: 0;
   left: 0;
-  z-index: -1;
-  transition: height 0.3s ease;
 }
-.header__bg.scrolled {
-  height: 100%;
+
+.line-top-closed {
+  top: 10px; /* Adjust to position the top line */
 }
-/* Header Brand Starts Here */
+
+.line-bottom-closed {
+  top: 20px; /* Adjust to position the bottom line */
+}
+
+.line-top-open {
+  transform: rotate(45deg);
+  top: 50%;
+  margin-top: -2px; /* Half of the line height */
+}
+
+.line-bottom-open {
+  transform: rotate(-45deg);
+  top: 50%;
+  margin-top: -2px; /* Half of the line height */
+}
+/* Universal Classes */
 .header__brand {
   transition: 0.3s ease;
   svg {
@@ -218,29 +348,14 @@ export default {
     height: 100%;
   }
   svg path {
-    fill: white;
-  }
-}
-.header__brand.active {
-  svg path {
     fill: black;
   }
 }
-/* Header Buttons Starts Here */
-.button__lang.active {
-  color: black;
-  border: 2px solid rgba(0, 0, 0, 0.5);
-}
-.button__cta.active {
-  color: white;
-  background-color: black;
-}
-.button__cta:hover.active {
-  color: white;
-  background-color: #828282;
-}
-.button__lang:hover.active {
-  background-color: black;
-  color: white;
+.header__column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-end;
+  align-items: flex-end;
 }
 </style>

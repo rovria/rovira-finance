@@ -1,12 +1,14 @@
 <script>
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
+import ContactForm from '../components/ContactForm.vue';
 
 export default {
   name: 'contact',
   components: {
     Header,
     Footer,
+    ContactForm,
   },
 };
 </script>
@@ -24,57 +26,7 @@ export default {
     <!-- Submission form Section -->
     <section class="section">
       <div class="container">
-        <div class="grid__columns-2">
-          <div class="column-1">
-            <img src="../assets/section_img.jpg" alt="" class="section__img" />
-          </div>
-          <div class="column-2">
-            <h1 class="global__heading-h1-small">
-              Our team of experts is ready to answer your questions, give you
-              more info and help you.
-            </h1>
-            <form action="" class="form">
-              <div class="form__row">
-                <label for="" class="form__label">Full Name</label>
-                <input
-                  type="text"
-                  class="form__input"
-                  placeholder="Ex. John Doe"
-                />
-              </div>
-              <div class="form__row">
-                <label for="" class="form__label">Email</label>
-                <input
-                  type="text"
-                  class="form__input"
-                  placeholder="Ex. johndoe@mail.com"
-                />
-              </div>
-              <div class="form__row">
-                <label for="" class="form__label">Situation</label>
-                <select name="" id="" class="form__dropdown">
-                  <option value="">Students</option>
-                  <option value="">Newcomers</option>
-                  <option value="">Graduates</option>
-                  <option value="">Partners</option>
-                </select>
-              </div>
-              <div class="form__row">
-                <label for="" class="form__label">Telephone</label>
-                <input
-                  type="text"
-                  class="form__input"
-                  placeholder="Ex. (416)-000-000"
-                />
-              </div>
-              <div class="form__row">
-                <button class="form__submit">
-                  Submit <img src="../assets/arrow.svg" alt="" />
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <ContactForm />
       </div>
     </section>
   </main>

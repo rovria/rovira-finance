@@ -29,7 +29,7 @@ export default {
             </h1>
             <h1
               class="global__heading-h1-small global__heading-white"
-              style="width: 516px; margin-top: 2rem"
+              style="width: 516px; margin-top: 3.75rem"
             >
               Expert Tax Services Tailored to Your Unique Needs.
             </h1>
@@ -92,7 +92,7 @@ experts"
   height: 100vh;
   position: relative;
   overflow: hidden;
-  padding-top: 13rem;
+  padding-top: 14.5rem;
   padding-bottom: 13.75rem;
 }
 .hero__bg-img {
@@ -109,13 +109,13 @@ experts"
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  margin-left: 3rem;
+  margin-left: 1.938rem;
 }
 .hero__title-space {
   margin-bottom: 0.2rem;
 }
 .hero__button__container {
-  margin-top: 3rem;
+  margin-top: 3.125rem;
   display: flex;
   flex-direction: row;
 }

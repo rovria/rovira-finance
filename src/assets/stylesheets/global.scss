@@ -1,5 +1,10 @@
 /* Document
    ========================================================================== */
+:root {
+  --section-margin-mobile: 5rem;
+  --section-margin-tablet: 8rem;
+  --section-margin-desktop: 10.938rem;
+}
 
 html {
   line-height: 1.15;
@@ -33,7 +38,7 @@ body {
 }
 
 .container {
-  max-width: 1736px;
+  max-width: 1780px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0.5rem;
@@ -41,7 +46,7 @@ body {
 }
 
 .section {
-  margin-top: 10.938rem;
+  margin-top: var(--section-margin-desktop);
 }
 
 .grid__columns-2 {
@@ -274,30 +279,6 @@ button:-moz-focusring,
   letter-spacing: -0.24px;
   padding: 2.063rem 1.5rem;
   border: 0;
-}
-.button__lang {
-  font-size: 1.25rem;
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  background-color: transparent;
-  padding: 0.8rem 0.9rem;
-  color: white;
-  transition: 0.3s ease;
-}
-.button__lang:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid white;
-}
-.button__cta {
-  font-size: 1.25rem;
-  background-color: white;
-  color: black;
-  padding: 0.9rem 2.3rem;
-  transition: 0.3s ease;
-}
-.button__cta:hover {
-  background-color: #828282;
-  color: white;
 }
 .button__hero {
   background-color: white;
