@@ -1,6 +1,11 @@
 <script>
+import Btn from '../components/Button.vue';
+
 export default {
   name: 'Intro',
+  components: {
+    Btn,
+  },
   props: {
     title: {
       type: String,
@@ -13,10 +18,6 @@ export default {
     content: {
       type: String,
       required: true,
-    },
-    buttonText: {
-      type: String,
-      default: 'Book Today',
     },
   },
 };
@@ -45,9 +46,11 @@ export default {
           <p class="global__p">
             {{ content }}
           </p>
-          <a href="" class="button button__tertiary button__margin"
-            >{{ buttonText }} <img src="../assets/arrow_black.svg" alt=""
-          /></a>
+          <Btn
+            text="Book Today"
+            link="https://example.com"
+            buttonType="primary"
+          />
         </div>
       </div>
     </div>
