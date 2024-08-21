@@ -122,5 +122,29 @@ experts"
 .global__heading-h2__margin {
   margin-bottom: 2rem;
 }
+.button__hero {
+  background-color: white;
+  color: black;
+  padding: 1.75rem 2.75rem;
+  font-size: 1.25rem;
+  transition: 0.3s ease;
+}
+.button__hero:hover {
+  background-color: #828282;
+  color: white;
+}
+.button__hero__ghost {
+  border: 2px solid rgba(255, 255, 255, 0.76);
+  padding: 1.75rem 2.75rem;
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: white;
+  transition: 0.3s ease;
+}
+.button__hero__ghost:hover {
+  background-color: white;
+  border: 2px solid white;
+  color: black;
+}
 /* Socials Section */
 </style>
