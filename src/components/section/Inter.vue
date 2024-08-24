@@ -1,5 +1,5 @@
 <script>
-import Btn from '../components/Button.vue';
+import Btn from '../Button.vue'
 
 export default {
   name: 'Inter',

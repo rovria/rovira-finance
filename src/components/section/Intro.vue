@@ -1,5 +1,5 @@
 <script>
-import Btn from '../components/Button.vue';
+import Btn from '../Button.vue'
 
 export default {
   name: 'Intro',
@@ -27,7 +27,7 @@ export default {
     <div class="section-intro__column">
       <div class="section-intro__img__container">
         <img
-          src="../assets/section_img.jpg"
+          src="../../assets/section_img.jpg"
           alt=""
           class="section-intro__img"
         />
@@ -49,7 +49,7 @@ export default {
           <Btn
             text="Book Today"
             link="https://example.com"
-            buttonType="primary"
+            buttonType="primary" class="intro__txt__spacer"
           />
         </div>
       </div>
@@ -77,7 +77,7 @@ export default {
 }
 .section-intro__img__container {
   width: 100%;
-  height: 110vh;
+  height: 1095px;
   position: relative;
   border-radius: 15px;
   overflow: hidden;
@@ -95,5 +95,8 @@ export default {
 }
 .txt__margin {
   margin-bottom: 1rem;
+}
+.intro__txt__spacer {
+  margin-top: 2.5rem;
 }
 </style>

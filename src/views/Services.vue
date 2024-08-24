@@ -1,7 +1,7 @@
 <script>
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
-import Intro from '../components/Intro.vue';
+import Intro from '../components/section/Intro.vue';
 import PricingTable from '../components/PricingTable.vue';
 import Faq from '../components/Faq.vue';
 

@@ -4,7 +4,6 @@ import Services from '../views/Services.vue';
 import About from '../views/About.vue';
 import Contact from '../views/Contact.vue';
 import Error from '../views/404.vue';
-import Styleguide from '../views/Styleguide.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,11 +32,6 @@ const router = createRouter({
       path: '/404',
       name: 'Error',
       component: Error,
-    },
-    {
-      path: '/styleguide',
-      name: 'styleguide',
-      component: Styleguide,
     },
   ],
 });

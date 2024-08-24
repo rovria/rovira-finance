@@ -1,8 +1,9 @@
 <script>
-import Intro from '../components/Intro.vue';
-import Inter from '../components/Inter.vue';
+import Intro from '../components/section/Intro.vue';
+import Inter from '../components/section/Inter.vue';
 import NavBar from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
+import Hero from '../components/section/Hero.vue'
 import ServiceTable from '../components/ServiceTable.vue';
 
 export default {
@@ -11,6 +12,7 @@ export default {
     Intro,
     Inter,
     NavBar,
+    Hero,
     Footer,
     ServiceTable,
   },
@@ -19,32 +21,7 @@ export default {
 <template>
   <NavBar />
   <main>
-    <!-- Hero Section Start -->
-    <section class="hero__section" id="activate">
-      <div class="container">
-        <div class="hero__container">
-          <div class="hero__column">
-            <h1 class="global__heading-h1-large global__heading-white">
-              Empower Your Financial Journey
-            </h1>
-            <h1
-              class="global__heading-h1-small global__heading-white"
-              style="width: 516px; margin-top: 3.75rem"
-            >
-              Expert Tax Services Tailored to Your Unique Needs.
-            </h1>
-            <div class="hero__button__container" style="gap: 2rem">
-              <a href="/" class="button button__hero">Our Services</a>
-              <a href="/" class="button button__hero__ghost">Contact Us</a>
-            </div>
-          </div>
-          <div class="hero__column"></div>
-        </div>
-      </div>
-      <img src="../assets/hero.jpg" alt="" class="hero__bg-img" />
-    </section>
-    <!-- Hero Section End -->
-
+      <Hero />
     <!-- Intro Section Start -->
     <section class="section">
       <div class="container">
@@ -86,65 +63,4 @@ experts"
   <Footer />
 </template>
 <style>
-/* Hero section */
-.hero__section {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  padding-top: 14.5rem;
-  padding-bottom: 13.75rem;
-}
-.hero__bg-img {
-  position: absolute;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-.hero__container {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  margin-left: 1.938rem;
-}
-.hero__title-space {
-  margin-bottom: 0.2rem;
-}
-.hero__button__container {
-  margin-top: 3.125rem;
-  display: flex;
-  flex-direction: row;
-}
-.global__heading-h2__margin {
-  margin-bottom: 2rem;
-}
-.button__hero {
-  background-color: white;
-  color: black;
-  padding: 1.75rem 2.75rem;
-  font-size: 1.25rem;
-  transition: 0.3s ease;
-}
-.button__hero:hover {
-  background-color: #828282;
-  color: white;
-}
-.button__hero__ghost {
-  border: 2px solid rgba(255, 255, 255, 0.76);
-  padding: 1.75rem 2.75rem;
-  font-size: 1.25rem;
-  background-color: transparent;
-  color: white;
-  transition: 0.3s ease;
-}
-.button__hero__ghost:hover {
-  background-color: white;
-  border: 2px solid white;
-  color: black;
-}
-/* Socials Section */
 </style>
