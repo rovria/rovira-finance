@@ -20,7 +20,7 @@ export default {
   <NavBar />
   <main>
     <!-- Hero Section Start -->
-    <section class="hero__section" id="section1">
+    <section class="hero__section" id="activate">
       <div class="container">
         <div class="hero__container">
           <div class="hero__column">

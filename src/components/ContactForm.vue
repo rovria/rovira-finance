@@ -29,69 +29,14 @@
         </select>
       </div>
       <button type="submit">Send</button>
-      <p v-if="successMessage">{{ successMessage }}</p>
-      <p v-if="errorMessage">{{ errorMessage }}</p>
     </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      form: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        services: '',
-      },
-      successMessage: '',
-      errorMessage: '',
-    };
-  },
-  methods: {
-    async submitForm() {
-      try {
-        const token = await grecaptcha.execute(
-          '6LffQCMqAAAAAHAbberCqITumz16Ca46lUx3XPlG',
-          {
-            action: 'submit',
-          }
-        );
-
-        const hubSpotEndpoint =
-          'https://api.hsforms.com/submissions/v3/integration/submit/47029090/59220e7c-da8b-4672-b73b-d6eba568d1b8';
-
-        const response = await axios.post(hubSpotEndpoint, {
-          fields: [
-            { name: 'firstname', value: this.form.firstName },
-            { name: 'lastname', value: this.form.lastName },
-            { name: 'email', value: this.form.email },
-            { name: 'phone', value: this.form.phone },
-            { name: 'services', value: this.form.services },
-          ],
-          'g-recaptcha-response': token,
-        });
-
-        if (response.status === 200) {
-          this.successMessage = 'Your message has been sent successfully!';
-          this.form.firstName = '';
-          this.form.lastName = '';
-          this.form.email = '';
-          this.form.phone = '';
-          this.form.services = '';
-        }
-      } catch (error) {
-        this.errorMessage =
-          'There was an error sending your message. Please try again later.';
-        console.error('Error:', error);
-      }
-    },
-  },
-};
+}
 </script>
 
 <style scoped>

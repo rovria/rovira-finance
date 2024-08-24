@@ -10,12 +10,71 @@ export default {
   methods: {
     toggleMenu() {
       this.isOpen = !this.isOpen;
+      this.handleBodyScroll();
+
+      if (this.isOpen) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
+    },
+    closeMenu() {
+      this.isOpen = false;
+      this.handleBodyScroll();
+    },
+    handleBodyScroll() {
+      if (this.isOpen) {
+        document.body.style.overflow = "hidden"; // Disable scrolling when menu is open
+      } else {
+        document.body.style.overflow = ""; // Re-enable scrolling when menu is closed
+      }
+    },
+    handleResize() {
+// Close the menu if the viewport is resized while the menu is open
+if (this.isOpen) {
+        this.closeMenu();
+      }
+    },
+    handleScroll() {
+      const firstSection = document.querySelector('#activate'); // Use the id
+    const headerBg = document.querySelector('.header__bg');
+    const navLinks = document.querySelectorAll('.nav__link');
+    const brand = document.querySelector('.header__brand');
+    const buttonLang = document.querySelector('.button__lang');
+    const buttonCta = document.querySelector('.button__cta');
+    const hamburgerMenu = document.querySelector('.line');
+      
+
+    if (window.scrollY >= firstSection.offsetTop + firstSection.offsetHeight) {
+      headerBg.classList.add('scrolled');
+        brand.classList.add('scrolled');
+        buttonLang.classList.add('scrolled');
+        buttonCta.classList.add('scrolled');
+        navLinks.forEach(link => link.classList.add('scrolled'));
+        hamburgerMenu.forEach(div => div.classList.add('scrolled'));
+    } else {
+      headerBg.classList.remove('scrolled');
+        brand.classList.remove('scrolled');
+        buttonLang.classList.remove('scrolled');
+        buttonCta.classList.remove('scrolled');
+        navLinks.forEach(link => link.classList.remove('scrolled'));
+        hamburgerMenu.forEach(div => div.classList.remove('scrolled'));
     }
+    }
+  },
+  mounted() {
+    window.addEventListener("resize", this.handleResize);
+    window.addEventListener("scroll", this.handleScroll); // Add scroll event listener
+  },
+  beforeDestroy() {
+    document.body.classList.remove('no-scroll');
+    window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener("scroll", this.handleScroll); // Remove scroll event listener
   }
 };
 </script>
 <template>
-  <header class="header">
+  <header :class="{ 'scrolled': isScrolled }" class="header">
     <div class="container">
       <div class="header__container">
         <!-- Header columns Start Here -->
@@ -104,15 +163,15 @@ export default {
           <!-- Mobile Hamburger Icon Starts Here -->
           <div class="header__menu">
             <div class="hamburger-menu" @click="toggleMenu" :aria-expanded="isOpen" aria-controls="menu">
-    <div class="line" :class="{ 'line-top-open': isOpen, 'line-top-closed': !isOpen }" />
-    <div class="line" :class="{ 'line-bottom-open': isOpen, 'line-bottom-closed': !isOpen }" />
+    <div class="line" :class="{ 'line-open-color': isOpen, 'line-top-open': isOpen, 'line-top-closed': !isOpen }" />
+    <div class="line" :class="{ 'line-open-color': isOpen, 'line-bottom-open': isOpen, 'line-bottom-closed': !isOpen }" />
   </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Header Dropdown Background Starts Here -->
-    <div class="header__bg"></div>
+    <div :class="{ 'scrolled-bg': isScrolled }" class="header__bg"></div>
   </header>
       <!-- Mobile Full-Screen Navigation Container Starts Here -->
       <transition name="fade">
@@ -141,6 +200,9 @@ export default {
       </transition>
 </template>
 <style lang="scss">
+.no-scroll {
+  overflow: hidden;
+}
 /* Standard Header Starts Here */
 .header {
   width: 100%;
@@ -179,11 +241,23 @@ export default {
   background-color: transparent;
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.36);
-}
-.button__lang:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid white;
+
+  &:hover {
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: white;
+    color: black;
+  }
+  &.scrolled {
+    
+    color: black;
+    border: 2px solid rgba(0, 0, 0, .36);
+
+    &:hover {
+      color: white;
+      background-color: black;
+      border: 2px solid rgba(0, 0, 0, 0);
+    }
+  }
 }
 .button__cta {
   display: inline-flex;
@@ -202,12 +276,21 @@ export default {
 
   background-color: white;
   color: black;
+
+  &:hover {
+    background-color: gray;
+    color: white;
+  }
+  &.scrolled {
+    background-color: black;
+    color: white;
+
+    &:hover {
+      background-color: gray;
+      color: white;
+    }
+  }
 }
-.button__cta:hover {
-  background-color: #afafaf;
-  color: white;
-}
-/* Navigation Links Starts Here */
 .nav__link {
   color: #fff;
   font-size: 1.25rem;
@@ -217,9 +300,31 @@ export default {
   margin-left: 1.5rem;
   transition: 0.3s ease;
   white-space: nowrap;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: gray;
+  }
+  &.scrolled {
+    color: black;
+
+    &:hover {
+      color: gray;
+    }
+  }
 }
-.nav__link:hover {
-  color: #afafaf;
+.header__brand {
+  width: 100%;
+  height: 100%;
+  fill: white;
+  transition: all 0.3s ease;
+  &.scrolled {
+    fill: black;
+  }
+  svg {
+    width: 100%;
+    height: 40px;
+  }
 }
 .header__left {
   display: flex;
@@ -244,15 +349,11 @@ export default {
   left: 0;
   z-index: -1;
   transition: height 0.3s ease;
-}
-.header__brand {
-  width: 100%;
-  height: 100%;
-  svg {
-    fill: white;
-    width: 100%;
-    height: 40px;
+
+  &.scrolled {
+    height: 100%;
   }
+
 }
 .hamburger-menu {
   display: flex;
@@ -262,26 +363,12 @@ export default {
   height: 40px; /* Adjusted height to fit the lines properly */
   position: relative;
 
-  .line {
-  width: 40px;
-  height: 2px;
-  background-color: white;
-  transition: all 0.3s ease;
-  position: absolute;
-  left: 0;
-}
-}
-
-
 .line-top-closed {
   top: 10px; /* Adjust to position the top line */
 }
 
 .line-bottom-closed {
   top: 20px; /* Adjust to position the bottom line */
-}
-.line-open-color {
-  background-color: black;
 }
 .line-top-open {
   transform: rotate(45deg);
@@ -294,6 +381,25 @@ export default {
   top: 50%;
   margin-top: -2px; /* Half of the line height */
 }
+ /* When the menu is open, change the line color to black */
+ .line-open-color {
+    background-color: black;
+  }
+
+  .line {
+  width: 40px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
+
+  &.scrolled {
+    background-color: black;
+  }
+}
+}
+
 /* Header Mobile */
 .header__mobile__container {
   display: flex;
@@ -309,9 +415,6 @@ export default {
   align-content: center;
   align-items: center;
   transition: all 0.3s ease; /* Transition for smooth display */
-}
-.header__mobile__container[style*="display: none"] {
-  display: none !important;
 }
 .mobile__container {
   width: 90%;
@@ -347,32 +450,33 @@ export default {
   font-weight: 500;
   line-height: 2.938rem;
 
+  &:hover {
+    color: gray;
+  }
 }
 .mobile__nav__link-cta {
   white-space: nowrap;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.813rem;
+
+  &:hover {
+    color: gray;
+  }
 }
 .mobile__nav__link-small {
   white-space: nowrap;
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 2.313rem;
+
+  &:hover {
+    color: gray;
+  }
 }
 .header__menu {
   display: none;
   z-index: 999;
-}
-.lang__small {
-  border: 2px solid black;
-  color: black;
-  margin-top: 2rem;
-}
-.lang__small:hover {
-  border: 2px solid gray;
-  background-color: gray;
-  color: white;
 }
 
 /* xl */
