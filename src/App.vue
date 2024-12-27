@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import './assets/stylesheets/global.scss';
+import './assets/styles/global.scss';
+import '@/assets/styles/_variables.scss';
 </script>
 
 <style></style>

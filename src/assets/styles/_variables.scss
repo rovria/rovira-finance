@@ -1,0 +1,46 @@
+// Primary Palettes
+$primary-color: #001044;
+$secondary-color: #25239e;
+$accent-color: #f7f1f1;
+
+// Neutral Palette
+$gray: #a8aaae;
+
+// Feedback/Status Colors
+$success-color: #31ba55;
+$warning-color: #ffc107;
+$error-color: #e42525;
+$info-color: #387eff;
+
+// Font Families
+$font-primary: 'Neue Montreal', sans-serif;
+$font-secondary: 'Source Sans Pro', serif;
+
+// Font Sizes
+$font-size-xs: 1.25rem;
+$font-size-small: 1.5rem;
+$font-size-base: 1rem;
+$font-size-md: 2.25rem;
+$font-size-lg: 5rem;
+$font-size-xl: 6.9rem;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-base: 1.5;
+$line-height-heading: 1.2;
+
+// Letter Spacing
+$letter-spacing-tight: -0.05em;
+$letter-spacing-normal: 0em;
+$letter-spacing-wide: 0.05em;
+
+// Breakpoints
+$breakpoint-xs: 320px; // Small Phones
+$breakpoint-sm: 576px; // Phones
+$breakpoint-md: 768px; // Tablets
+$breakpoint-lg: 992px; // Desktops
+$breakpoint-xl: 1200px; // Large desktops
